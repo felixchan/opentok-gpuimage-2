@@ -33,10 +33,10 @@ class FilteredPublisher:  OTPublisherKit, OTVideoCapture, GPUImageVideoCameraDel
         
         self.view = GPUImageView(frame: CGRectMake(0,0,1,1))
         self.videoCapture = self
-//        
+        
 //        let format = OTVideoFormat.init(NV12WithWidth: UInt32(imageWidth), height: UInt32(imageHeight))
 //        self.videoFrame = OTVideoFrame(format: format)
-//        
+        
         let format = OTVideoFormat.init()
         format.pixelFormat = OTPixelFormat.ARGB
         format.bytesPerRow = [ imageWidth * 4 ]
@@ -44,21 +44,7 @@ class FilteredPublisher:  OTPublisherKit, OTVideoCapture, GPUImageVideoCameraDel
         format.imageHeight = UInt32(imageHeight)
         videoFrame = OTVideoFrame.init(format: format)
     }
-    
-    
-//    func willOutputSampleBuffer(sampleBuffer: CMSampleBuffer!) {
-//        let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
-//        CVPixelBufferLockBaseAddress(imageBuffer!, 0)
-//        videoFrame?.clearPlanes()
-//        for var i = 0 ; i < CVPixelBufferGetPlaneCount(imageBuffer!); i++ {
-//            videoFrame?.planes.addPointer(CVPixelBufferGetBaseAddressOfPlane(imageBuffer!, i))
-//        }
-//        videoFrame?.orientation = OTVideoOrientation.Left
-//        videoCaptureConsumer?.consumeFrame(videoFrame)
-//        
-//        CVPixelBufferUnlockBaseAddress(imageBuffer!, 0)
-//    }
-    
+
     
     
     func initCapture(){
